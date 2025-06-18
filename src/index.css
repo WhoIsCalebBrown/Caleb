@@ -1,0 +1,378 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #030712;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #030712;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #030712;
+}
+
+/* Custom Hero Animations */
+@keyframes float-big {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-80px) translateX(60px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-80px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-120px) translateX(-40px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: translateX(50px) translateY(-30px);
+  }
+  50% {
+    transform: translateX(-30px) translateY(-60px);
+  }
+  75% {
+    transform: translateX(-50px) translateY(30px);
+  }
+}
+
+@keyframes drift-reverse {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: translateX(-40px) translateY(20px);
+  }
+  50% {
+    transform: translateX(40px) translateY(40px);
+  }
+  75% {
+    transform: translateX(60px) translateY(-20px);
+  }
+}
+
+@keyframes travel-horizontal {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes travel-vertical {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes travel-diagonal {
+  0% {
+    transform: translateX(-100px) translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes matrix-glow {
+  0%, 100% {
+    color: #10b981;
+    text-shadow: 0 0 5px #10b981;
+  }
+  50% {
+    color: #34d399;
+    text-shadow: 0 0 10px #34d399, 0 0 20px #10b981;
+  }
+}
+
+@keyframes matrix-flicker {
+  0% { opacity: 1; }
+  2% { opacity: 0.8; }
+  4% { opacity: 1; }
+  96% { opacity: 1; }
+  98% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+.animate-float-big {
+  animation: float-big ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 12s ease-in-out infinite;
+}
+
+.animate-drift-reverse {
+  animation: drift-reverse 15s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 25s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.matrix-column {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.matrix-char-vertical {
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #10b981;
+}
+
+.matrix-char-current {
+  color: #ffffff !important;
+  text-shadow: 
+    0 0 5px #10b981,
+    0 0 10px #10b981,
+    0 0 15px #10b981,
+    0 0 20px #10b981;
+  animation: matrix-glow-intense 0.5s ease-in-out;
+}
+
+.matrix-char-recent {
+  color: #34d399 !important;
+  text-shadow: 
+    0 0 3px #10b981,
+    0 0 6px #10b981;
+}
+
+.matrix-char-cursor {
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #10b981,
+    0 0 10px #10b981,
+    0 0 15px #10b981;
+  font-size: 1.125rem;
+}
+
+@keyframes matrix-glow-intense {
+  0% {
+    text-shadow: 
+      0 0 2px #10b981,
+      0 0 4px #10b981;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 
+      0 0 8px #10b981,
+      0 0 16px #10b981,
+      0 0 24px #10b981,
+      0 0 32px #10b981;
+    transform: scale(1.1);
+  }
+  100% {
+    text-shadow: 
+      0 0 5px #10b981,
+      0 0 10px #10b981,
+      0 0 15px #10b981,
+      0 0 20px #10b981;
+    transform: scale(1);
+  }
+}
+
+.animate-travel-horizontal {
+  animation: travel-horizontal 15s linear infinite;
+}
+
+.animate-travel-vertical {
+  animation: travel-vertical 12s linear infinite 3s;
+}
+
+.animate-travel-diagonal {
+  animation: travel-diagonal 18s linear infinite 6s;
+}
+
+/* Typewriter Effect */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #60a5fa;
+  font-weight: normal;
+}
+
+.typewriter {
+  font-family: 'Courier New', monospace;
+  display: inline-block;
+  min-height: 1em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #030712;
+  }
+  html, body, #root {
+    background-color: #030712;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
