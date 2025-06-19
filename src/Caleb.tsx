@@ -165,19 +165,54 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
+  // Technology URLs mapping
+  const getTechUrl = (tech: string): string => {
+    const techUrls: { [key: string]: string } = {
+      'Laravel': 'https://laravel.com',
+      'TypeScript': 'https://www.typescriptlang.org',
+      'JavaScript': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      'NestJS': 'https://nestjs.com',
+      'GraphQL': 'https://graphql.org',
+      'Apollo': 'https://www.apollographql.com',
+      'Hasura': 'https://hasura.io',
+      'React': 'https://react.dev',
+      'Vue.js': 'https://vuejs.org',
+      'Linux/Arch': 'https://archlinux.org',
+      'Docker': 'https://www.docker.com',
+      'PostgreSQL': 'https://www.postgresql.org',
+      'Redis': 'https://redis.io',
+      'MySQL': 'https://www.mysql.com',
+      'Python': 'https://www.python.org',
+      'FastAPI': 'https://fastapi.tiangolo.com',
+      'Elasticsearch': 'https://www.elastic.co',
+      'WebSockets': 'https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API',
+      'Stripe API': 'https://stripe.com/docs/api',
+      'IGDB API': 'https://api-docs.igdb.com',
+      'Unraid': 'https://unraid.net',
+      'Tailscale': 'https://tailscale.com',
+      'Sonarr': 'https://sonarr.tv',
+      'Radarr': 'https://radarr.video',
+      'Prowlarr': 'https://prowlarr.com',
+      'Ollama': 'https://ollama.ai',
+      'Grafana': 'https://grafana.com',
+      'VSCode Extension': 'https://code.visualstudio.com/api'
+    };
+    return techUrls[tech] || `https://www.google.com/search?q=${encodeURIComponent(tech)}`;
+  };
+
   const skills = [
-    { name: 'Laravel', category: 'Backend', icon: '⚡', color: 'from-red-500 to-red-600' },
-    { name: 'TypeScript', category: 'Programming', icon: '📘', color: 'from-blue-500 to-blue-600' },
-    { name: 'JavaScript', category: 'Programming', icon: '💛', color: 'from-yellow-500 to-yellow-600' },
-    { name: 'NestJS', category: 'Backend', icon: '🏗️', color: 'from-rose-500 to-pink-600' },
-    { name: 'GraphQL', category: 'API', icon: '🔗', color: 'from-purple-500 to-purple-600' },
-    { name: 'Apollo', category: 'GraphQL', icon: '🚀', color: 'from-indigo-500 to-indigo-600' },
-    { name: 'Hasura', category: 'Backend', icon: '⚡', color: 'from-cyan-500 to-cyan-600' },
-    { name: 'React', category: 'Frontend', icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
-    { name: 'Vue.js', category: 'Frontend', icon: '💚', color: 'from-green-500 to-emerald-600' },
-    { name: 'Linux/Arch', category: 'Systems', icon: '🐧', color: 'from-slate-500 to-slate-600' },
-    { name: 'Docker', category: 'DevOps', icon: '🐳', color: 'from-blue-400 to-blue-600' },
-    { name: 'PostgreSQL', category: 'Database', icon: '🐘', color: 'from-blue-600 to-indigo-700' }
+    { name: 'Laravel', category: 'Backend', icon: '⚡', color: 'from-red-500 to-red-600', url: 'https://laravel.com' },
+    { name: 'TypeScript', category: 'Programming', icon: '📘', color: 'from-blue-500 to-blue-600', url: 'https://www.typescriptlang.org' },
+    { name: 'JavaScript', category: 'Programming', icon: '💛', color: 'from-yellow-500 to-yellow-600', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { name: 'NestJS', category: 'Backend', icon: '🏗️', color: 'from-rose-500 to-pink-600', url: 'https://nestjs.com' },
+    { name: 'GraphQL', category: 'API', icon: '🔗', color: 'from-purple-500 to-purple-600', url: 'https://graphql.org' },
+    { name: 'Apollo', category: 'GraphQL', icon: '🚀', color: 'from-indigo-500 to-indigo-600', url: 'https://www.apollographql.com' },
+    { name: 'Hasura', category: 'Backend', icon: '⚡', color: 'from-cyan-500 to-cyan-600', url: 'https://hasura.io' },
+    { name: 'React', category: 'Frontend', icon: '⚛️', color: 'from-cyan-400 to-blue-500', url: 'https://react.dev' },
+    { name: 'Vue.js', category: 'Frontend', icon: '💚', color: 'from-green-500 to-emerald-600', url: 'https://vuejs.org' },
+    { name: 'Linux/Arch', category: 'Systems', icon: '🐧', color: 'from-slate-500 to-slate-600', url: 'https://archlinux.org' },
+    { name: 'Docker', category: 'DevOps', icon: '🐳', color: 'from-blue-400 to-blue-600', url: 'https://www.docker.com' },
+    { name: 'PostgreSQL', category: 'Database', icon: '🐘', color: 'from-blue-600 to-indigo-700', url: 'https://www.postgresql.org' }
   ];
 
   const experiences = [
@@ -525,15 +560,21 @@ const Portfolio = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
               {skills.map((skill, index) => (
-                  <div key={index} className="group bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all hover:transform hover:scale-105">
+                  <a 
+                    key={index} 
+                    href={skill.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all hover:transform hover:scale-105 cursor-pointer block"
+                  >
                     <div className="flex items-center">
                       <span className="text-2xl mr-4">{skill.icon}</span>
                       <div>
-                        <h3 className="font-semibold text-white">{skill.name}</h3>
+                        <h3 className="font-semibold text-white group-hover:text-blue-400 transition-colors">{skill.name}</h3>
                         <p className="text-sm text-gray-400">{skill.category}</p>
                       </div>
                     </div>
-                  </div>
+                  </a>
               ))}
             </div>
           </div>
@@ -624,13 +665,20 @@ const Portfolio = () => {
                     </div>
                     <p className="text-gray-300 mb-6 leading-relaxed flex-grow">{project.description}</p>
 
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, techIndex) => (
-                          <span key={techIndex} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 hover:bg-gray-700 hover:border-gray-600 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer">
-                            {tech}
-                          </span>
-                      ))}
-                    </div>
+                                         <div className="flex flex-wrap gap-2 mb-6">
+                       {project.tech.map((tech, techIndex) => (
+                           <a
+                             key={techIndex}
+                             href={getTechUrl(tech)}
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 hover:bg-gray-700 hover:border-gray-600 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer inline-block"
+                             onClick={(e) => e.stopPropagation()}
+                           >
+                             {tech}
+                           </a>
+                       ))}
+                     </div>
 
                     <div className="flex items-center justify-between mt-auto">
                       <span className="text-blue-400 text-sm font-medium">{project.status}</span>
