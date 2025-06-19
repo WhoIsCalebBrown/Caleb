@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Calendar, ChevronDown, Github, GraduationCap, Mail, MapPin, Menu, Phone, X, Code, Server, Database} from 'lucide-react';
+import {Calendar, ChevronDown, Github, GraduationCap, MapPin, Menu, X, Code, Server, Database} from 'lucide-react';
 
 // Matrix Digital Rain Component
 const MatrixRain = ({ columnIndex }: { columnIndex: number }) => {
@@ -166,18 +166,18 @@ const Portfolio = () => {
   };
 
   const skills = [
-    { name: 'Laravel', category: 'Backend', level: 90, icon: '⚡', color: 'from-red-500 to-red-600' },
-    { name: 'TypeScript', category: 'Programming', level: 88, icon: '📘', color: 'from-blue-500 to-blue-600' },
-    { name: 'JavaScript', category: 'Programming', level: 88, icon: '💛', color: 'from-yellow-500 to-yellow-600' },
-    { name: 'NestJS', category: 'Backend', level: 85, icon: '🏗️', color: 'from-rose-500 to-pink-600' },
-    { name: 'GraphQL', category: 'API', level: 82, icon: '🔗', color: 'from-purple-500 to-purple-600' },
-    { name: 'Apollo', category: 'GraphQL', level: 80, icon: '🚀', color: 'from-indigo-500 to-indigo-600' },
-    { name: 'Hasura', category: 'Backend', level: 78, icon: '⚡', color: 'from-cyan-500 to-cyan-600' },
-    { name: 'React', category: 'Frontend', level: 85, icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
-    { name: 'Vue.js', category: 'Frontend', level: 83, icon: '💚', color: 'from-green-500 to-emerald-600' },
-    { name: 'Linux/Arch', category: 'Systems', level: 85, icon: '🐧', color: 'from-slate-500 to-slate-600' },
-    { name: 'Docker', category: 'DevOps', level: 80, icon: '🐳', color: 'from-blue-400 to-blue-600' },
-    { name: 'PostgreSQL', category: 'Database', level: 78, icon: '🐘', color: 'from-blue-600 to-indigo-700' }
+    { name: 'Laravel', category: 'Backend', icon: '⚡', color: 'from-red-500 to-red-600' },
+    { name: 'TypeScript', category: 'Programming', icon: '📘', color: 'from-blue-500 to-blue-600' },
+    { name: 'JavaScript', category: 'Programming', icon: '💛', color: 'from-yellow-500 to-yellow-600' },
+    { name: 'NestJS', category: 'Backend', icon: '🏗️', color: 'from-rose-500 to-pink-600' },
+    { name: 'GraphQL', category: 'API', icon: '🔗', color: 'from-purple-500 to-purple-600' },
+    { name: 'Apollo', category: 'GraphQL', icon: '🚀', color: 'from-indigo-500 to-indigo-600' },
+    { name: 'Hasura', category: 'Backend', icon: '⚡', color: 'from-cyan-500 to-cyan-600' },
+    { name: 'React', category: 'Frontend', icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
+    { name: 'Vue.js', category: 'Frontend', icon: '💚', color: 'from-green-500 to-emerald-600' },
+    { name: 'Linux/Arch', category: 'Systems', icon: '🐧', color: 'from-slate-500 to-slate-600' },
+    { name: 'Docker', category: 'DevOps', icon: '🐳', color: 'from-blue-400 to-blue-600' },
+    { name: 'PostgreSQL', category: 'Database', icon: '🐘', color: 'from-blue-600 to-indigo-700' }
   ];
 
   const experiences = [
@@ -413,15 +413,11 @@ const Portfolio = () => {
                  className="p-4 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all transform hover:scale-105 hover:shadow-lg">
                 <Github size={24} />
               </a>
-              <a href="mailto:Caleb.Brown9999@gmail.com"
-                 className="p-4 bg-gray-800 hover:bg-gray-700 rounded-xl transition-all transform hover:scale-105 hover:shadow-lg">
-                <Mail size={24} />
-              </a>
             </div>
 
             <button
                 onClick={() => scrollToSection('about')}
-                className="animate-bounce text-gray-400 hover:text-white transition-colors"
+                className="animate-bounce-gentle text-gray-400 hover:text-white transition-colors"
             >
               <ChevronDown size={32} />
             </button>
@@ -530,22 +526,13 @@ const Portfolio = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6">
               {skills.map((skill, index) => (
                   <div key={index} className="group bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all hover:transform hover:scale-105">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center">
-                        <span className="text-2xl mr-4">{skill.icon}</span>
-                        <div>
-                          <h3 className="font-semibold text-white">{skill.name}</h3>
-                          <p className="text-sm text-gray-400">{skill.category}</p>
-                        </div>
+                    <div className="flex items-center">
+                      <span className="text-2xl mr-4">{skill.icon}</span>
+                      <div>
+                        <h3 className="font-semibold text-white">{skill.name}</h3>
+                        <p className="text-sm text-gray-400">{skill.category}</p>
                       </div>
                     </div>
-                    <div className="w-full bg-gray-800 rounded-full h-2 mb-2">
-                      <div
-                          className={`bg-gradient-to-r ${skill.color} h-2 rounded-full transition-all duration-1000 ease-out`}
-                          style={{ width: isVisible.skills ? `${skill.level}%` : '0%' }}
-                      ></div>
-                    </div>
-                    <p className="text-right text-sm text-gray-400">{skill.level}%</p>
                   </div>
               ))}
             </div>
@@ -559,19 +546,60 @@ const Portfolio = () => {
               Education
             </h2>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 max-w-4xl mx-auto">
-              <div className="flex items-start space-x-6">
-                <div className="p-4 bg-blue-600/20 rounded-xl">
-                  <GraduationCap size={32} className="text-blue-400" />
+            <div className="space-y-8 max-w-4xl mx-auto">
+              {/* Software Engineering Technologies */}
+              <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                <div className="flex items-start space-x-6">
+                  <div className="p-4 bg-blue-600/20 rounded-xl">
+                    <GraduationCap size={32} className="text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-white mb-2">Software Engineering Technologies</h3>
+                    <p className="text-xl text-blue-400 mb-3">Conestoga College | Waterloo, ON</p>
+                    <p className="text-gray-400 mb-4">2021 - 2024</p>
+                    <p className="text-gray-300 leading-relaxed">
+                      Software Engineering Technology at Conestoga extends beyond programming. Course areas include
+                      software quality, project management, computer security and business intelligence.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white mb-2">Software Engineering Technologies</h3>
-                  <p className="text-xl text-blue-400 mb-3">Conestoga College | Waterloo, ON</p>
-                  <p className="text-gray-400 mb-4">2021 - 2024</p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Software Engineering Technology at Conestoga extends beyond programming. Course areas include
-                    software quality, project management, computer security and business intelligence.
-                  </p>
+              </div>
+
+              {/* Marketing Diploma */}
+              <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                <div className="flex items-start space-x-6">
+                  <div className="p-4 bg-green-600/20 rounded-xl">
+                    <GraduationCap size={32} className="text-green-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-white mb-2">Business – Marketing</h3>
+                    <p className="text-xl text-green-400 mb-3">George Brown College | Toronto, ON</p>
+                    <p className="text-gray-400 mb-4">2020 - 2021</p>
+                    <p className="text-gray-300 leading-relaxed">
+                      Comprehensive marketing program focusing on digital marketing strategies, consumer behavior, 
+                      brand management, and market research. Gained hands-on experience with industry-standard tools 
+                      and developed skills in campaign development, social media marketing, and data analytics.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Film Production Diploma */}
+              <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800">
+                <div className="flex items-start space-x-6">
+                  <div className="p-4 bg-purple-600/20 rounded-xl">
+                    <GraduationCap size={32} className="text-purple-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-white mb-2">Film Production Diploma</h3>
+                    <p className="text-xl text-purple-400 mb-3">Toronto Film School | Toronto, ON</p>
+                    <p className="text-gray-400 mb-4">2018 - 2019</p>
+                    <p className="text-gray-300 leading-relaxed">
+                      Intensive hands-on program covering all aspects of film production including writing, directing, 
+                      cinematography, editing, and post-production. Worked with industry-grade equipment and learned 
+                      from working filmmakers. Developed strong project management skills and creative problem-solving abilities.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -587,24 +615,24 @@ const Portfolio = () => {
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                  <div key={index} className="group bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all hover:transform hover:scale-105">
+                  <div key={index} className="group bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all hover:transform hover:scale-105 flex flex-col h-full">
                     <div className="flex items-center space-x-3 mb-4">
                       <div className="p-2 bg-blue-600/20 rounded-lg text-blue-400">
                         {project.icon}
                       </div>
                       <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
                     </div>
-                    <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                    <p className="text-gray-300 mb-6 leading-relaxed flex-grow">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech, techIndex) => (
-                          <span key={techIndex} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700">
+                          <span key={techIndex} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 hover:bg-gray-700 hover:border-gray-600 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer">
                             {tech}
                           </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mt-auto">
                       <span className="text-blue-400 text-sm font-medium">{project.status}</span>
                     </div>
                   </div>
@@ -625,23 +653,7 @@ const Portfolio = () => {
               Let's talk about technology, projects, or potential collaborations!
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-all">
-                <Mail className="text-blue-400 mb-4 mx-auto" size={32} />
-                <h3 className="font-semibold mb-3 text-white">Email</h3>
-                <a href="mailto:Caleb.Brown9999@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Caleb.Brown9999@gmail.com
-                </a>
-              </div>
-
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-all">
-                <Phone className="text-blue-400 mb-4 mx-auto" size={32} />
-                <h3 className="font-semibold mb-3 text-white">Phone</h3>
-                <a href="tel:+15199984523" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  (+1) 519 998 4523
-                </a>
-              </div>
-
+            <div className="grid md:grid-cols-1 gap-8 mb-16 max-w-md mx-auto">
               <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800 hover:border-gray-700 transition-all">
                 <MapPin className="text-blue-400 mb-4 mx-auto" size={32} />
                 <h3 className="font-semibold mb-3 text-white">Location</h3>
@@ -654,11 +666,6 @@ const Portfolio = () => {
                  className="flex items-center space-x-3 bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-xl transition-all transform hover:scale-105">
                 <Github size={20} />
                 <span>GitHub</span>
-              </a>
-              <a href="mailto:Caleb.Brown9999@gmail.com"
-                 className="flex items-center space-x-3 bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-xl transition-all transform hover:scale-105">
-                <Mail size={20} />
-                <span>Send Message</span>
               </a>
             </div>
           </div>

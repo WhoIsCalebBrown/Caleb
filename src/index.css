@@ -205,6 +205,15 @@ button:focus-visible {
   }
 }
 
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @keyframes matrix-rain {
   0% {
     transform: translateY(-100vh);
@@ -260,6 +269,10 @@ button:focus-visible {
 
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2.5s ease-in-out infinite;
 }
 
 .matrix-column {
